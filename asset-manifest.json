@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Phychologists-Service-on-React/static/css/main.7acaea2f.css",
+    "main.js": "/Phychologists-Service-on-React/static/js/main.07d3183d.js",
+    "index.html": "/Phychologists-Service-on-React/index.html",
+    "main.7acaea2f.css.map": "/Phychologists-Service-on-React/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/Phychologists-Service-on-React/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
