@@ -1,4 +1,4 @@
-import { Field, Form } from 'formik';
+import { Field } from 'formik';
 import styled from 'styled-components';
 
 export const LogInTitle = styled.h1`
