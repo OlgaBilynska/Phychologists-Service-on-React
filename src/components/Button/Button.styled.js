@@ -12,6 +12,5 @@ export const ButtonStyled = styled.button`
 
   &:hover {
     background-color: #fbc75e;
-    /* color: var(--color-text); */
   }
 `;
