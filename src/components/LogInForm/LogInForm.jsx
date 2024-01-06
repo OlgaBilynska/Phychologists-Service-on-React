@@ -13,6 +13,15 @@ import {
 import { EyeIcon } from 'components/RegistrationForm/RegistrationForm.styled';
 import sprite from '../../assets/sprite.svg';
 
+export const FormError = ({ name }) => {
+  return (
+    <ErrorMessage
+      name={name}
+      render={message => <ErrorText>{message}</ErrorText>}
+    />
+  );
+};
+
 const LoginForm = () => {
   const initialValues = {
     email: '',
@@ -30,15 +39,6 @@ const LoginForm = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     resetForm();
-  };
-
-  const FormError = ({ name }) => {
-    return (
-      <ErrorMessage
-        name={name}
-        render={message => <ErrorText>{message}</ErrorText>}
-      />
-    );
   };
 
   return (

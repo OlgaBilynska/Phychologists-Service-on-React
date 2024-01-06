@@ -27,6 +27,6 @@ export const EyeIcon = styled.svg`
   right: 16.83px;
   width: 20px;
   height: 20px;
-  stroke: #191a15;
+  stroke: var(--color-text);
   fill: var(--color-white);
 `;
