@@ -9,6 +9,7 @@ export const ButtonStyled = styled.button`
   font-weight: 500;
   display: ${props => props.display || 'block'};
   padding: ${props => props.padding || '18px 50px'};
+  width: ${props => props.width};
 
   &:hover {
     background-color: #fbc75e;

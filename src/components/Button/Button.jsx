@@ -8,6 +8,8 @@ const Button = ({
   padding,
   fontSize,
   border,
+  type,
+  width,
 }) => {
   return (
     <ButtonStyled
@@ -17,6 +19,8 @@ const Button = ({
       padding={padding}
       fontSize={fontSize}
       border={border}
+      type={type}
+      width={width}
     >
       {children}
     </ButtonStyled>

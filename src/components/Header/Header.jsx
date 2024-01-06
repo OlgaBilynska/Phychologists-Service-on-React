@@ -13,12 +13,16 @@ import {
   DotAccent,
   HeaderContentWrapper,
 } from './Header.styled';
+import LogInForm from 'components/LogInForm';
+import RegistrationForm from 'components/RegistrationForm/RegistrationForm';
 
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
 
-  const toggleModal = () => {
+  const toggleModal = content => {
     setShowModal(prevState => !prevState);
+    setModalContent(content);
   };
 
   return (
@@ -38,25 +42,30 @@ const Header = () => {
             </NavBlockStyled>
           </LogoAndNav>
           <ButtonBlockStyled>
-            <div onClick={toggleModal}>
+            <div onClick={() => toggleModal('login')}>
               <Button
                 backgroundColor="transparent"
                 border="rgba(25, 26, 21, 0.20)"
                 color="var(--color-text)"
                 fontSize="16px"
+                type="button"
               >
                 Log In
               </Button>
             </div>
-            <div onClick={toggleModal}>
-              <Button onClick={toggleModal} fontSize="16px">
+            <div onClick={() => toggleModal('registration')}>
+              <Button type="button" fontSize="16px">
                 Registration
               </Button>
             </div>
           </ButtonBlockStyled>
         </HeaderContentWrapper>
       </ContainerStyled>
-      {showModal && <PopUpWindow onClick={toggleModal}>Modal</PopUpWindow>}
+      {showModal && (
+        <PopUpWindow onClick={toggleModal}>
+          {modalContent === 'login' ? <LogInForm /> : <RegistrationForm />}
+        </PopUpWindow>
+      )}
     </HeaderWrapper>
   );
 };
