@@ -1,0 +1,2 @@
+:root{--color-text:#191a15;--color-accent:#fc832c;--color-accent-light:#fc832c33;--color-white:#fbfbfb;--timing-function:cubic-bezier(0.4,0,0.2,1)}body{background-color:var(--color-text-button);color:#191a15;color:var(--color-text);font-family:Inter,sans-serif;font-size:18px;font-style:normal;font-weight:400;height:100vh;width:100%}body,h1,h2,h3,h4,h5,h6,p{margin:0}a{text-decoration:none}ul{list-style:none;margin:0;padding:0}img{display:block}button{cursor:pointer}*{box-sizing:border-box}
+/*# sourceMappingURL=main.71662282.css.map*/

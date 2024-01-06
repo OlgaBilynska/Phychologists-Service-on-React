@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/Phychologists-Service-on-React/static/css/main.7acaea2f.css",
-    "main.js": "/Phychologists-Service-on-React/static/js/main.07d3183d.js",
+    "main.css": "/Phychologists-Service-on-React/static/css/main.71662282.css",
+    "main.js": "/Phychologists-Service-on-React/static/js/main.7a1574e5.js",
+    "static/media/psy-img.jpg": "/Phychologists-Service-on-React/static/media/psy-img.2c39942318e7bde1ac55.jpg",
+    "static/media/sprite.svg": "/Phychologists-Service-on-React/static/media/sprite.b836fbc0186083720341377d5b5e57e9.svg",
     "index.html": "/Phychologists-Service-on-React/index.html",
-    "main.7acaea2f.css.map": "/Phychologists-Service-on-React/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/Phychologists-Service-on-React/static/js/main.07d3183d.js.map"
+    "main.71662282.css.map": "/Phychologists-Service-on-React/static/css/main.71662282.css.map",
+    "main.7a1574e5.js.map": "/Phychologists-Service-on-React/static/js/main.7a1574e5.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.71662282.css",
+    "static/js/main.7a1574e5.js"
   ]
 }
