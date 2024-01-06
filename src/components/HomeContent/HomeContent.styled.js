@@ -20,7 +20,7 @@ export const HomeContentWrapper = styled.div`
   display: flex;
   gap: 125px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 78px;
 `;
 

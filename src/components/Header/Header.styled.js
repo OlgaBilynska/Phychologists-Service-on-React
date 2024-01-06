@@ -30,6 +30,11 @@ export const DotAccent = styled.span`
 
 export const NavItemStyled = styled.p`
   font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const ButtonBlockStyled = styled.div`
