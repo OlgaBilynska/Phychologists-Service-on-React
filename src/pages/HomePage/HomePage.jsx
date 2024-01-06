@@ -1,17 +1,16 @@
 import HomeContent from 'components/HomeContent/HomeContent';
-// import Header from 'components/Header/Header';
-
-import { ContainerStyled } from 'components/Container/Container.styled';
 import Header from 'components/Header';
+import { ContainerStyled } from 'components/Container/Container.styled';
+import { HomePageWrapper } from './HomePage.styled';
 
 const HomePage = () => {
   return (
-    <>
+    <HomePageWrapper>
+      <Header />
       <ContainerStyled>
-        <Header />
         <HomeContent />
       </ContainerStyled>
-    </>
+    </HomePageWrapper>
   );
 };
 

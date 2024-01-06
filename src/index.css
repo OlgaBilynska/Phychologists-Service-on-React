@@ -4,6 +4,7 @@
   --color-text: #191a15;
   --color-accent: #fc832c;
   --color-accent-light: #fc832c33;
+  --color-white: #fbfbfb;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
