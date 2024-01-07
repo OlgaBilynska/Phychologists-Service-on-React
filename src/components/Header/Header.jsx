@@ -30,15 +30,19 @@ const Header = () => {
       <ContainerStyled>
         <HeaderContentWrapper>
           <LogoAndNav>
-            <LogoStyled>
+            <LogoStyled to="/">
               <LogoAccent>
                 psychologists<DotAccent>.</DotAccent>
               </LogoAccent>
               services
             </LogoStyled>
             <NavBlockStyled>
-              <NavItemStyled>Home</NavItemStyled>
-              <NavItemStyled>Psychologists</NavItemStyled>
+              <li>
+                <NavItemStyled to="/">Home</NavItemStyled>
+              </li>
+              <li>
+                <NavItemStyled to="/psychologists">Psychologists</NavItemStyled>
+              </li>
             </NavBlockStyled>
           </LogoAndNav>
           <ButtonBlockStyled>

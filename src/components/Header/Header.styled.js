@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div`
@@ -11,7 +12,7 @@ export const HeaderContentWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const LogoStyled = styled.p`
+export const LogoStyled = styled(NavLink)`
   font-size: 20px;
   font-weight: 600;
   line-height: 1.2;
@@ -28,7 +29,7 @@ export const DotAccent = styled.span`
   font-weight: 500;
 `;
 
-export const NavItemStyled = styled.p`
+export const NavItemStyled = styled(NavLink)`
   font-size: 16px;
   cursor: pointer;
 
@@ -42,7 +43,7 @@ export const ButtonBlockStyled = styled.div`
   gap: 8px;
 `;
 
-export const NavBlockStyled = styled.div`
+export const NavBlockStyled = styled.ul`
   display: flex;
   gap: 40px;
 `;
