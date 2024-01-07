@@ -1,15 +1,25 @@
 {
   "files": {
     "main.css": "/Phychologists-Service-on-React/static/css/main.71662282.css",
-    "main.js": "/Phychologists-Service-on-React/static/js/main.2401d76e.js",
+    "main.js": "/Phychologists-Service-on-React/static/js/main.395e4700.js",
+    "static/js/370.513bc350.chunk.js": "/Phychologists-Service-on-React/static/js/370.513bc350.chunk.js",
+    "static/js/673.8c29a188.chunk.js": "/Phychologists-Service-on-React/static/js/673.8c29a188.chunk.js",
+    "static/js/681.f59b98d8.chunk.js": "/Phychologists-Service-on-React/static/js/681.f59b98d8.chunk.js",
+    "static/js/568.bf4daea5.chunk.js": "/Phychologists-Service-on-React/static/js/568.bf4daea5.chunk.js",
+    "static/js/660.d82e895f.chunk.js": "/Phychologists-Service-on-React/static/js/660.d82e895f.chunk.js",
     "static/media/psy-img.jpg": "/Phychologists-Service-on-React/static/media/psy-img.2c39942318e7bde1ac55.jpg",
     "static/media/sprite.svg": "/Phychologists-Service-on-React/static/media/sprite.a32665a117505c6302e94fb9026f8390.svg",
     "index.html": "/Phychologists-Service-on-React/index.html",
     "main.71662282.css.map": "/Phychologists-Service-on-React/static/css/main.71662282.css.map",
-    "main.2401d76e.js.map": "/Phychologists-Service-on-React/static/js/main.2401d76e.js.map"
+    "main.395e4700.js.map": "/Phychologists-Service-on-React/static/js/main.395e4700.js.map",
+    "370.513bc350.chunk.js.map": "/Phychologists-Service-on-React/static/js/370.513bc350.chunk.js.map",
+    "673.8c29a188.chunk.js.map": "/Phychologists-Service-on-React/static/js/673.8c29a188.chunk.js.map",
+    "681.f59b98d8.chunk.js.map": "/Phychologists-Service-on-React/static/js/681.f59b98d8.chunk.js.map",
+    "568.bf4daea5.chunk.js.map": "/Phychologists-Service-on-React/static/js/568.bf4daea5.chunk.js.map",
+    "660.d82e895f.chunk.js.map": "/Phychologists-Service-on-React/static/js/660.d82e895f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.71662282.css",
-    "static/js/main.2401d76e.js"
+    "static/js/main.395e4700.js"
   ]
 }
