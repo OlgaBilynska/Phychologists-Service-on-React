@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import PsyCard from 'components/PsyCard';
 
 import { db } from '../../firebase.js';
-import { get, ref, onValue, getDatabase } from 'firebase/database';
+import { ref, onValue } from 'firebase/database';
 
 const PsyList = () => {
   const [psychologists, setPsychologists] = useState([]);
