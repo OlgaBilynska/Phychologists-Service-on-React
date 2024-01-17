@@ -48,7 +48,7 @@ const Header = () => {
           <ButtonBlockStyled>
             <div onClick={() => toggleModal('login')}>
               <Button
-                backgroundColor="transparent"
+                backgroundcolor="transparent"
                 border="rgba(25, 26, 21, 0.20)"
                 color="var(--color-text)"
                 fontSize="16px"

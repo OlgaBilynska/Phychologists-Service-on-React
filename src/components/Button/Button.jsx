@@ -3,7 +3,7 @@ import { ButtonStyled } from './Button.styled';
 const Button = ({
   children,
   color,
-  backgroundColor,
+  backgroundcolor,
   display,
   padding,
   fontSize,
@@ -14,7 +14,7 @@ const Button = ({
   return (
     <ButtonStyled
       color={color}
-      backgroundColor={backgroundColor}
+      backgroundcolor={backgroundcolor}
       display={display}
       padding={padding}
       fontSize={fontSize}

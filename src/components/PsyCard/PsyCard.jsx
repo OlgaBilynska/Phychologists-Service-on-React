@@ -24,7 +24,8 @@ import {
 } from './PsyCard.styled';
 import sprite from '../../assets/sprite.svg';
 
-const PsyCard = () => {
+const PsyCard = ({ psychologist, index }) => {
+  console.log('psy');
   return (
     <CardWrapper>
       <ImgWrapper>

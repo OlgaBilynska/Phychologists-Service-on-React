@@ -1,9 +1,8 @@
 import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
-// import { db } from '../../config.js';
-
 import Loader from './Loader';
+// import { AuthProvider } from 'auth';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const PsychologistsPage = lazy(() => import('../pages/PsychologistsPage'));
@@ -26,6 +25,7 @@ export const App = () => {
           </Suspense>
         }
       />
+
       <Route
         path="psychologists"
         element={

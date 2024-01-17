@@ -1,7 +1,6 @@
 import { DNA } from 'react-loader-spinner';
 
 const Loader = () => {
-  console.log('loader');
   return (
     <div
       style={{
