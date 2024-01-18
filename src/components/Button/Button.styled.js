@@ -10,6 +10,8 @@ export const ButtonStyled = styled.button`
   display: ${props => props.display || 'block'};
   padding: ${props => props.padding || '18px 50px'};
   width: ${props => props.width};
+  letter-spacing: -0.16px;
+  line-height: 1.25;
 
   &:hover {
     background-color: #fbc75e;

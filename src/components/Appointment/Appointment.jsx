@@ -17,9 +17,11 @@ import {
   PsyName,
 } from './Appointment.styled';
 import { FormError } from 'components/LogInForm/LogInForm';
-import image from '../../assets/psy-img.jpg';
+// import image from '../../assets/psy-img.jpg';
 
-const Appointment = () => {
+const Appointment = ({ psychologist }) => {
+  const { name, avatar_url } = psychologist;
+
   const initialValues = {
     name: '',
     phone: '',
@@ -57,10 +59,10 @@ const Appointment = () => {
       </AppointmentTextBlock>
 
       <PsyBlock>
-        <ImgPsy alt="psychologist" src={image} />
+        <ImgPsy alt="psychologist" src={avatar_url} />
         <PsyTextBlock>
           <PsyTitle>Your psychologist</PsyTitle>
-          <PsyName>Dr. Sarah Davis</PsyName>
+          <PsyName>{name}</PsyName>
         </PsyTextBlock>
       </PsyBlock>
 

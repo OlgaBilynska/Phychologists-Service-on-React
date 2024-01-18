@@ -15,6 +15,7 @@ import {
 } from './Header.styled';
 import LogInForm from 'components/LogInForm';
 import RegistrationForm from 'components/RegistrationForm/RegistrationForm';
+import { AuthProvider } from 'auth';
 
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
@@ -47,6 +48,7 @@ const Header = () => {
           </LogoAndNav>
           <ButtonBlockStyled>
             <div onClick={() => toggleModal('login')}>
+              <AuthProvider />
               <Button
                 backgroundcolor="transparent"
                 border="rgba(25, 26, 21, 0.20)"

@@ -7,7 +7,6 @@ export const CardWrapper = styled.div`
   padding: 24px;
 
   width: 1184px;
-  height: 358px;
   border-radius: 24px;
   background-color: #fbfbfb;
 `;
@@ -66,11 +65,7 @@ export const HeartSvg = styled.svg`
   margin-left: 28px;
 `;
 
-export const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-`;
+export const ContentWrapper = styled.div``;
 
 export const JobRatingBlock = styled.div`
   display: flex;
@@ -94,6 +89,8 @@ export const JobBlock = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  margin-bottom: 24px;
 `;
 
 export const RatingText = styled.p`
@@ -110,6 +107,7 @@ export const RatingText = styled.p`
 
 export const RatingBlock = styled.div`
   display: flex;
+  /* align-items: flex-start; */
   gap: 8px;
 `;
 
@@ -135,6 +133,7 @@ export const CategoryWrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
+  margin-bottom: 24px;
 `;
 
 export const CategoryText = styled.li`
@@ -158,4 +157,14 @@ export const DescriptionText = styled.p`
   color: rgba(25, 26, 21, 0.5);
   font-size: 16px;
   line-height: 1.25;
+
+  margin-bottom: 14px;
+`;
+
+export const ReadMoreText = styled.p`
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration-line: underline;
+  cursor: pointer;
 `;

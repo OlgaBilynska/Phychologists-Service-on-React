@@ -1,20 +1,14 @@
-import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
 import Loader from './Loader';
-// import { AuthProvider } from 'auth';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const PsychologistsPage = lazy(() => import('../pages/PsychologistsPage'));
 const FavoritePage = lazy(() => import('../pages/FavoritesPage'));
+const Reviews = lazy(() => import('./Reviews'));
 
 export const App = () => {
-  const location = useLocation();
-
-  if (location.pathname === '/home') {
-    return <Navigate to="/" />;
-  }
-
   return (
     <Routes>
       <Route
@@ -33,7 +27,9 @@ export const App = () => {
             <PsychologistsPage />
           </Suspense>
         }
-      />
+      >
+        <Route path="reviews" element={<Reviews />} />
+      </Route>
       <Route
         path="favorites"
         element={
