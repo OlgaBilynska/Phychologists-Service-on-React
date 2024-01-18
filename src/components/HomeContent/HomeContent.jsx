@@ -38,7 +38,7 @@ const HomeContent = () => {
           We help you to reveal your potential, overcome challenges and find a
           guide in your own life with the help of our experienced psychologists.
         </Content>
-        <div onClick={toggleModal}>
+        <div>
           <Button display="flex">
             <span>Get Started</span>
             <ArrowSvg>
@@ -46,11 +46,6 @@ const HomeContent = () => {
             </ArrowSvg>
           </Button>
         </div>
-        {showModal && (
-          <PopUpWindow onClick={toggleModal}>
-            <Appointment />
-          </PopUpWindow>
-        )}
       </ContentBlock>
       <ImgWrapper>
         <ImgStyled alt="psychologist" src={image} />
