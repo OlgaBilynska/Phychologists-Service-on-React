@@ -6,7 +6,7 @@ export const CardWrapper = styled.div`
 
   padding: 24px;
 
-  width: 1184px;
+  width: 100%;
   border-radius: 24px;
   background-color: #fbfbfb;
 `;

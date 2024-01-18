@@ -30,11 +30,31 @@ export const DotAccent = styled.span`
 `;
 
 export const NavItemStyled = styled(NavLink)`
+  position: relative;
   font-size: 16px;
+  line-height: 1.2;
+  color: var(--color-text);
   cursor: pointer;
 
   &:hover {
     text-decoration: underline;
+  }
+
+  &.psychologists-active {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+      margin-top: 4px;
+      background-color: var(--color-accent);
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+    }
   }
 `;
 

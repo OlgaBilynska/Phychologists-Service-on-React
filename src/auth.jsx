@@ -8,7 +8,7 @@ export const AuthProvider = () => {
 
   useEffect(() => {
     const unsub = auth.onAuthStateChanged(maybeUser => {
-      if (maybeUser === null) {
+      if (maybeUser == null) {
         return setUser(maybeUser);
       }
 
@@ -20,5 +20,5 @@ export const AuthProvider = () => {
     return unsub;
   }, [auth]);
 
-  return user !== null ? <>{user.displayName}</> : <>loading</>;
+  return user != null ? <>{user.displayName}</> : <>loading</>;
 };

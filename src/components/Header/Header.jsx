@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Button from 'components/Button';
 import PopUpWindow from 'components/PopUpWindow';
 import { ContainerStyled } from 'components/Container/Container.styled';
@@ -21,6 +22,8 @@ const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
 
+  const location = useLocation();
+
   const toggleModal = content => {
     setShowModal(prevState => !prevState);
     setModalContent(content);
@@ -42,13 +45,22 @@ const Header = () => {
                 <NavItemStyled to="/">Home</NavItemStyled>
               </li>
               <li>
-                <NavItemStyled to="/psychologists">Psychologists</NavItemStyled>
+                <NavItemStyled
+                  to="/psychologists"
+                  className={
+                    location.pathname === '/psychologists'
+                      ? 'psychologists-active'
+                      : ''
+                  }
+                >
+                  Psychologists
+                </NavItemStyled>
               </li>
             </NavBlockStyled>
           </LogoAndNav>
+          <AuthProvider />
           <ButtonBlockStyled>
             <div onClick={() => toggleModal('login')}>
-              <AuthProvider />
               <Button
                 backgroundcolor="transparent"
                 border="rgba(25, 26, 21, 0.20)"
