@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import image from '../../assets/psy-img.jpg';
 import Button from 'components/Button/Button';
 import Stats from 'components/Stats';
@@ -18,16 +17,8 @@ import {
   QuestionWrapper,
   UsersWrapper,
 } from './HomeContent.styled';
-import PopUpWindow from 'components/PopUpWindow';
-import Appointment from 'components/Appointment';
 
 const HomeContent = () => {
-  const [showModal, setShowModal] = useState(false);
-
-  const toggleModal = () => {
-    setShowModal(prevState => !prevState);
-  };
-
   return (
     <HomeContentWrapper>
       <ContentBlock>
