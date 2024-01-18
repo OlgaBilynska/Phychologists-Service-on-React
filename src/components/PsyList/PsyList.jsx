@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import PsyCard from 'components/PsyCard';
 import { PsyListWrapper, LoadMoreWrapper } from './PsyList.styled.js';
