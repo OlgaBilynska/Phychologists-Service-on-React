@@ -4,13 +4,13 @@ import PsyList from 'components/PsyList/PsyList';
 import { ContainerStyled } from 'components/Container/Container.styled';
 import { PsyPageWrapper } from './PsychologistsPage.styled';
 
-const PsychologistsPage = ({ psychologists }) => {
+const PsychologistsPage = () => {
   return (
     <PsyPageWrapper>
       <Header />
       <ContainerStyled>
         <Filters />
-        <PsyList psychologists={psychologists} />
+        <PsyList />
       </ContainerStyled>
     </PsyPageWrapper>
   );

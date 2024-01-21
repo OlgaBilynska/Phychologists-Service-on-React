@@ -40,7 +40,7 @@ export const NavItemStyled = styled(NavLink)`
     text-decoration: underline;
   }
 
-  &.psychologists-active {
+  &.active {
     &::after {
       content: '';
       position: absolute;
@@ -85,4 +85,9 @@ export const BtnLogIn = styled.button`
   line-height: 1.25;
   letter-spacing: -0.16px;
   background-color: transparent;
+`;
+
+export const AuthAndButtonBlock = styled.div`
+  display: flex;
+  gap: 28px;
 `;

@@ -1,24 +1,46 @@
-import { useEffect, useState } from 'react';
-import { getAuth, signInWithPopup } from 'firebase/auth';
-import { app, googleAuthProvider } from './firebase';
+// import { useEffect, useState } from 'react';
+// import {
+//   getAuth,
+//   signInWithPopup,
+//   createUserWithEmailAndPassword,
+// } from 'firebase/auth';
+// import { app, googleAuthProvider } from './firebase';
 
-export const AuthProvider = () => {
-  const auth = getAuth(app);
-  const [user, setUser] = useState(auth.currentUser);
+// export const GoogleAuthProvider = ({ values }) => {
+//   const auth = getAuth(app);
+//   const [user, setUser] = useState(auth.currentUser);
 
-  useEffect(() => {
-    const unsub = auth.onAuthStateChanged(maybeUser => {
-      if (maybeUser == null) {
-        return setUser(maybeUser);
-      }
+//   useEffect(() => {
+//     const unsub = auth.onAuthStateChanged(maybeUser => {
+//       if (maybeUser == null) {
+//         return setUser(maybeUser);
+//       }
 
-      signInWithPopup(auth, googleAuthProvider).then(credentials => {
-        setUser(credentials.user).catch(e => console.error(e));
-      });
-    });
+//       signInWithPopup(auth, googleAuthProvider).then(credentials => {
+//         setUser(credentials.user).catch(e => console.error(e));
+//       });
 
-    return unsub;
-  }, [auth]);
+//       createUserWithEmailAndPassword(auth, values.email, values.password).then(
+//         credentials => {
+//           console.log('cre', credentials).catch(e => console.error(e));
+//         }
+//       );
+//     });
 
-  return user != null ? <>{user.displayName}</> : <>loading</>;
-};
+//     return unsub;
+//   }, [auth, values]);
+
+//   return user != null ? (
+//     <>
+//       <AuthBlock>
+//         <IconUser>
+//           <use href={`${sprite}#icon-user`} />
+//         </IconUser>
+//         <AuthText>
+//           <AuthProvider />
+//         </AuthText>
+//       </AuthBlock>
+//       {user.displayName}
+//     </>
+//   ) : null;
+// };

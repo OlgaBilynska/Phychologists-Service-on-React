@@ -14,6 +14,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { psyReducer } from './psychologists/psySlice';
 import { favoritesReducer } from './favorites/favoritesSlice';
+import { authReducer } from './auth/authSlice';
 
 const favoritesPersistConfig = {
   key: 'fav',
@@ -23,6 +24,7 @@ const favoritesPersistConfig = {
 const combinedReducers = combineReducers({
   psychologists: psyReducer,
   favorites: persistReducer(favoritesPersistConfig, favoritesReducer),
+  auth: authReducer,
 });
 
 export const store = configureStore({

@@ -1,5 +1,10 @@
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+
+import { auth } from '../../firebase.js';
+import { createUserWithEmailAndPassword } from '@firebase/auth';
+import { useState } from 'react';
+
 import Button from 'components/Button';
 import sprite from '../../assets/sprite.svg';
 import {
@@ -16,9 +21,10 @@ import {
 } from 'components/LogInForm/LoginForm.styled';
 
 const RegistrationForm = () => {
-  const handleSubmit = (values, { resetForm }) => {
-    resetForm();
-  };
+  console.log('registration');
+  const [values, setValues] = useState('');
+
+  console.log('v', values);
 
   const initialValues = {
     name: '',
@@ -43,6 +49,22 @@ const RegistrationForm = () => {
         render={message => <ErrorText>{message}</ErrorText>}
       />
     );
+  };
+
+  const handleSubmit = async (values, { resetForm }) => {
+    console.log('val', values);
+    try {
+      await createUserWithEmailAndPassword(
+        auth,
+        values.name,
+        values.email,
+        values.password
+      );
+      setValues(values);
+      resetForm();
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (

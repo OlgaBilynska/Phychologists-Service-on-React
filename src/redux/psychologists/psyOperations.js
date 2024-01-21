@@ -1,9 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { async } from 'q';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { db } from '../../firebase.js';
-import { ref} from 'firebase/database';
+import { ref } from 'firebase/database';
 
 export const toastError = text => {
   toast.error(text, {

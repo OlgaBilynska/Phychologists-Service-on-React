@@ -13,14 +13,16 @@ import {
   LogoAndNav,
   DotAccent,
   HeaderContentWrapper,
+  AuthAndButtonBlock,
 } from './Header.styled';
 import LogInForm from 'components/LogInForm';
 import RegistrationForm from 'components/RegistrationForm/RegistrationForm';
-import { AuthProvider } from 'auth';
+import GoogleAuthProvider from 'components/Auth/Auth';
 
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const location = useLocation();
 
@@ -28,6 +30,16 @@ const Header = () => {
     setShowModal(prevState => !prevState);
     setModalContent(content);
   };
+
+  const handleAuthStateChanged = newState => {
+    setIsAuthenticated(newState);
+  };
+
+  // const setUserStatus = user => {
+  //   if (user) {
+  //     return setIsAuthenticated(true);
+  //   }
+  // };
 
   return (
     <HeaderWrapper>
@@ -48,35 +60,52 @@ const Header = () => {
                 <NavItemStyled
                   to="/psychologists"
                   className={
-                    location.pathname === '/psychologists'
-                      ? 'psychologists-active'
-                      : ''
+                    location.pathname === '/psychologists' ? 'active' : ''
                   }
                 >
                   Psychologists
                 </NavItemStyled>
               </li>
+              <li>
+                <NavItemStyled
+                  to="/favorites"
+                  className={location.pathname === '/favorites' ? 'active' : ''}
+                >
+                  Favorites
+                </NavItemStyled>
+              </li>
             </NavBlockStyled>
           </LogoAndNav>
-          <AuthProvider />
-          <ButtonBlockStyled>
-            <div onClick={() => toggleModal('login')}>
-              <Button
-                backgroundcolor="transparent"
-                border="rgba(25, 26, 21, 0.20)"
-                color="var(--color-text)"
-                fontSize="16px"
-                type="button"
-              >
-                Log In
-              </Button>
-            </div>
-            <div onClick={() => toggleModal('registration')}>
-              <Button type="button" fontSize="16px">
-                Registration
-              </Button>
-            </div>
-          </ButtonBlockStyled>
+
+          <AuthAndButtonBlock>
+            {isAuthenticated ? (
+              <div>
+                <GoogleAuthProvider
+                  // user={user => setUserStatus(user)}
+                  onAuthStateChanged={handleAuthStateChanged}
+                />
+              </div>
+            ) : (
+              <ButtonBlockStyled>
+                <div onClick={() => toggleModal('login')}>
+                  <Button
+                    backgroundcolor="transparent"
+                    border="rgba(25, 26, 21, 0.20)"
+                    color="var(--color-text)"
+                    fontSize="16px"
+                    type="button"
+                  >
+                    Log In
+                  </Button>
+                </div>
+                <div onClick={() => toggleModal('registration')}>
+                  <Button type="button" fontSize="16px">
+                    Registration
+                  </Button>
+                </div>
+              </ButtonBlockStyled>
+            )}
+          </AuthAndButtonBlock>
         </HeaderContentWrapper>
       </ContainerStyled>
       {showModal && (
