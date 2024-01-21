@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
+import { toastError } from 'redux/psychologists/psyOperations';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   getAuth,
@@ -8,6 +9,7 @@ import {
   signOut,
 } from '@firebase/auth';
 import { auth, app } from '../../firebase';
+import { googleAuthProvider } from '../../firebase';
 
 export const getUser = createAsyncThunk('user/getUser', async (_, thunkAPI) => {
   console.log('get');

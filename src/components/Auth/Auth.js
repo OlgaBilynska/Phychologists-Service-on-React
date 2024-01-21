@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import {
-  getAuth,
-  signInWithPopup,
-  createUserWithEmailAndPassword,
-} from 'firebase/auth';
+import { getAuth, signInWithPopup } from 'firebase/auth';
 import LogoutBtn from 'components/LogoutBtn';
 import { app, googleAuthProvider } from '../../firebase';
 import { AuthBlock, IconUser, AuthText, AuthLogoutBlock } from './Auth.styled';

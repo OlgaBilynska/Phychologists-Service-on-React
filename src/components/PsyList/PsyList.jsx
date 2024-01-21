@@ -4,17 +4,17 @@ import { nanoid } from 'nanoid';
 import PsyCard from 'components/PsyCard';
 import { PsyListWrapper, LoadMoreWrapper } from './PsyList.styled.js';
 
-import { db, fireBaseConfig } from '../../firebase.js';
+import { db } from '../../firebase.js';
 import { ref, onValue } from 'firebase/database';
 import Button from 'components/Button/index.js';
-import {
-  collection,
-  query,
-  // orderBy,
-  startAfter,
-  limit,
-  getDocs,
-} from 'firebase/firestore';
+// import {
+// collection,
+// query,
+// orderBy,
+//   startAfter,
+//   limit,
+//   getDocs,
+// } from 'firebase/firestore';
 // import { selectPsychologists } from '../../redux/selectors.js';
 
 const PsyList = () => {

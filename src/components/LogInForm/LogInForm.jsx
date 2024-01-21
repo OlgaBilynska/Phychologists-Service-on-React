@@ -30,9 +30,9 @@ export const FormError = ({ name }) => {
 };
 
 const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [values, setValues] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [values, setValues] = useState('');
 
   // console.log('auth', auth);
 
