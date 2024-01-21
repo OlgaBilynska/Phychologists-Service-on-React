@@ -77,7 +77,7 @@ export const logInUserByGoogle = createAsyncThunk(
       //         onAuthStateChanged(true);
       //     }
       // })
-    } catch {
+    } catch (e) {
       toastError(`Oops! Something went wrong! ${e.response.data}`);
       return thunkAPI.rejectWithValue(e.message);
     }

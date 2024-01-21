@@ -18,7 +18,7 @@ import {
 import { EyeIcon } from 'components/RegistrationForm/RegistrationForm.styled';
 import sprite from '../../assets/sprite.svg';
 import { ButtonStyled } from 'components/Button/Button.styled.js';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 export const FormError = ({ name }) => {
   return (
@@ -71,7 +71,7 @@ const LoginForm = () => {
     console.log('values.email', values.email);
     try {
       await createUserWithEmailAndPassword(auth, values.email, values.password);
-      setValues(values);
+      // setValues(values);
       resetForm();
     } catch (e) {
       console.error(e);
