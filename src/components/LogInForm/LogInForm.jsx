@@ -1,10 +1,7 @@
 import { Formik, ErrorMessage, Form } from 'formik';
 import * as yup from 'yup';
 import { auth, googleAuthProvider } from '../../firebase.js';
-import {
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-} from '@firebase/auth';
+import { signInWithEmailAndPassword, signInWithPopup } from '@firebase/auth';
 
 import {
   FormWrapper,
@@ -14,11 +11,11 @@ import {
   Input,
   FormikWrapper,
   InputWrapper,
+  ButtonBlock,
 } from './LoginForm.styled';
 import { EyeIcon } from 'components/RegistrationForm/RegistrationForm.styled';
 import sprite from '../../assets/sprite.svg';
 import { ButtonStyled } from 'components/Button/Button.styled.js';
-// import { useState } from 'react';
 
 export const FormError = ({ name }) => {
   return (
@@ -30,12 +27,6 @@ export const FormError = ({ name }) => {
 };
 
 const LoginForm = () => {
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [values, setValues] = useState('');
-
-  // console.log('auth', auth);
-
   const initialValues = {
     email: '',
     password: '',
@@ -50,15 +41,6 @@ const LoginForm = () => {
       .required('Password is a required field'),
   });
 
-  // const onLogInClick = async () => {
-  //   console.log('data');
-  //   try {
-  //     await createUserWithEmailAndPassword(auth, email, password);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   const onLogInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleAuthProvider);
@@ -70,8 +52,7 @@ const LoginForm = () => {
   const handleSubmit = async (values, { resetForm }) => {
     console.log('values.email', values.email);
     try {
-      await createUserWithEmailAndPassword(auth, values.email, values.password);
-      // setValues(values);
+      await signInWithEmailAndPassword(auth, values.email, values.password);
       resetForm();
     } catch (e) {
       console.error(e);
@@ -85,18 +66,6 @@ const LoginForm = () => {
         Welcome back! Please enter your credentials to access your account and
         continue your search for a psychologist.
       </LogInText>
-
-      {/* <form>
-        <input placeholder="email" onChange={e => setEmail(e.target.value)} />
-        <input
-          placeholder="password"
-          type="password"
-          onChange={e => setPassword(e.target.value)}
-        />
-        <button onClick={onLogInClick}>Sign In</button>
-        <button onClick={onLogInWithGoogle}>Sign in with Google</button>
-        <button onClick={onLogOutClick}>Logout</button>
-      </form> */}
 
       <Formik
         initialValues={initialValues}
@@ -117,13 +86,20 @@ const LoginForm = () => {
             </InputWrapper>
             <FormError name="password" />
           </FormikWrapper>
-          <ButtonStyled type="submit" width="100%">
-            Log In
-          </ButtonStyled>
 
-          <ButtonStyled type="submit" width="100%" onClick={onLogInWithGoogle}>
-            Sign in with Google
-          </ButtonStyled>
+          <ButtonBlock>
+            <ButtonStyled type="submit" width="100%">
+              Log In
+            </ButtonStyled>
+
+            <ButtonStyled
+              type="submit"
+              width="100%"
+              onClick={onLogInWithGoogle}
+            >
+              Sign in with Google
+            </ButtonStyled>
+          </ButtonBlock>
         </Form>
       </Formik>
     </FormWrapper>

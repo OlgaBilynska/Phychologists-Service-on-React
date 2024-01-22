@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import PsyCard from '../PsyCard';
 import { PsyListWrapper, LoadMoreWrapper } from '../PsyList/PsyList.styled';
@@ -7,102 +6,22 @@ import { PsyListWrapper, LoadMoreWrapper } from '../PsyList/PsyList.styled';
 import { db } from '../../firebase.js';
 import { ref, onValue } from 'firebase/database';
 import Button from 'components/Button/index.js';
-// import {
-// collection,
-// query,
-// orderBy,
-//   startAfter,
-//   limit,
-//   getDocs,
-// } from 'firebase/firestore';
-// import { selectPsychologists } from '../../redux/selectors.js';
 
-const PsyList = () => {
+const FavList = () => {
   const [psychologists, setPsychologists] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const psyPerPage = 3;
-
-  //start the example
-
-  // const [list, setList] = useState([]);
-  // const [page, setPage] = useState(1);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     await fireBaseConfig
-  //       .firestore()
-  //       .collection('psycologists')
-  //       // .orderBy('created', 'desc')
-  //       // .limit(4)
-  //       .onSnapshot(function (querySnapshot) {
-  //         var items = [];
-  //         querySnapshot.forEach(function (doc) {
-  //           items.push({ key: nanoid(), ...doc.data() });
-  //         });
-  //         console.log('first item ', items[0]);
-  //         setPsychologists(items);
-  //       });
-  //   };
-  //   fetchData();
-  // }, []);
-
-  const showNext = ({ item }) => {
-    // if (psychologists.length === 0) {
-    //   alert('Thats all we have for now !');
-    // } else {
-    //   const fetchNextData = async () => {
-    //     await fireBaseConfig
-    //       .firestore()
-    //       .collection('psycologists')
-    //       // .orderBy('created', 'desc')
-    //       .limit(5)
-    //       .startAfter(item.created)
-    //       .onSnapshot(function (querySnapshot) {
-    //         const items = [];
-    //         querySnapshot.forEach(function (doc) {
-    //           items.push({ key: nanoid(), ...doc.data() });
-    //         });
-    //         setPsychologists(items);
-    //         setCurrentPage(currentPage + 1);
-    //       });
-    //   };
-    //   fetchNextData();
-    // }
-  };
-
-  //finish
 
   const onLoadMore = () => {
     setCurrentPage(currentPage + 1);
   };
 
   useEffect(() => {
-    const psychologistsRef = ref(db, 'favorites');
-
-    // const queryRef = query(psychologistsRef);
-    // console.log('q', queryRef);
-
-    // const myQuery = psychologistsRef.limit(4);
-
-    // const first = query(collection(db, 'psycologists'), limit(25));
-    // const documentSnapshots = async () => {
-    //   await getDocs(first);
-    // };
-
-    // const lastVisible =
-    //   documentSnapshots.docs[documentSnapshots.docs.length - 1];
-    // console.log('last', lastVisible);
-
-    // const next = query(
-    //   collection(db, 'psycologists'),
-    //   startAfter(lastVisible),
-    //   limit(25)
-    // );
+    const favoritesRef = ref(db, 'favorites');
 
     const startAt = (currentPage - 1) * psyPerPage;
-    // const endAt = startAt + psyPerPage;
 
-    const query = onValue(psychologistsRef, snapshot => {
+    const query = onValue(favoritesRef, snapshot => {
       const data = snapshot.val();
 
       if (data) {
@@ -132,26 +51,18 @@ const PsyList = () => {
             ''
           ) : (
             <Button
-              onClick={() =>
-                showNext({ item: psychologists[psychologists.length - 1] })
-              }
+              type="button"
+              fontSize={16}
+              padding="14px 48px"
+              onClick={onLoadMore}
             >
-              Next
+              Load more
             </Button>
           )}
-
-          <Button
-            type="button"
-            fontSize={16}
-            padding="14px 48px"
-            onClick={onLoadMore}
-          >
-            Load more
-          </Button>
         </LoadMoreWrapper>
       </PsyListWrapper>
     </>
   );
 };
 
-export default PsyList;
+export default FavList;

@@ -40,7 +40,7 @@ export const NavItemStyled = styled(NavLink)`
     text-decoration: underline;
   }
 
-  &.active {
+  &.psy-active {
     &::after {
       content: '';
       position: absolute;

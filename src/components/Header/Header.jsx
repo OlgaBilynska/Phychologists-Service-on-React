@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Button from 'components/Button';
 import PopUpWindow from 'components/PopUpWindow';
@@ -17,12 +17,15 @@ import {
 } from './Header.styled';
 import LogInForm from 'components/LogInForm';
 import RegistrationForm from 'components/RegistrationForm/RegistrationForm';
-import GoogleAuthProvider from 'components/Auth/Auth';
+import AuthProvider from 'components/Auth/Auth';
+import { onAuthStateChanged } from '@firebase/auth';
 
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  console.log('auth', isAuthenticated);
 
   const location = useLocation();
 
@@ -31,15 +34,11 @@ const Header = () => {
     setModalContent(content);
   };
 
-  const handleAuthStateChanged = newState => {
-    setIsAuthenticated(newState);
+  const handleAuthStateChanged = () => {
+    if (onAuthStateChanged) {
+      setIsAuthenticated(prevState => !prevState);
+    } else return;
   };
-
-  // const setUserStatus = user => {
-  //   if (user) {
-  //     return setIsAuthenticated(true);
-  //   }
-  // };
 
   return (
     <HeaderWrapper>
@@ -60,7 +59,7 @@ const Header = () => {
                 <NavItemStyled
                   to="/psychologists"
                   className={
-                    location.pathname === '/psychologists' ? 'active' : ''
+                    location.pathname === '/psychologists' ? 'psy-active' : ''
                   }
                 >
                   Psychologists
@@ -69,7 +68,9 @@ const Header = () => {
               <li>
                 <NavItemStyled
                   to="/favorites"
-                  className={location.pathname === '/favorites' ? 'active' : ''}
+                  className={
+                    location.pathname === '/favorites' ? 'psy-active' : ''
+                  }
                 >
                   Favorites
                 </NavItemStyled>
@@ -78,33 +79,28 @@ const Header = () => {
           </LogoAndNav>
 
           <AuthAndButtonBlock>
-            {isAuthenticated ? (
-              <div>
-                <GoogleAuthProvider
-                  // user={user => setUserStatus(user)}
-                  onAuthStateChanged={handleAuthStateChanged}
-                />
+            <div>
+              <AuthProvider />
+              {/* <AuthProvider onAuthStateChanged={handleAuthStateChanged} /> */}
+            </div>
+            <ButtonBlockStyled>
+              <div onClick={() => toggleModal('login')}>
+                <Button
+                  backgroundcolor="transparent"
+                  border="rgba(25, 26, 21, 0.20)"
+                  color="var(--color-text)"
+                  fontSize="16px"
+                  type="button"
+                >
+                  Log In
+                </Button>
               </div>
-            ) : (
-              <ButtonBlockStyled>
-                <div onClick={() => toggleModal('login')}>
-                  <Button
-                    backgroundcolor="transparent"
-                    border="rgba(25, 26, 21, 0.20)"
-                    color="var(--color-text)"
-                    fontSize="16px"
-                    type="button"
-                  >
-                    Log In
-                  </Button>
-                </div>
-                <div onClick={() => toggleModal('registration')}>
-                  <Button type="button" fontSize="16px">
-                    Registration
-                  </Button>
-                </div>
-              </ButtonBlockStyled>
-            )}
+              <div onClick={() => toggleModal('registration')}>
+                <Button type="button" fontSize="16px">
+                  Registration
+                </Button>
+              </div>
+            </ButtonBlockStyled>
           </AuthAndButtonBlock>
         </HeaderContentWrapper>
       </ContainerStyled>

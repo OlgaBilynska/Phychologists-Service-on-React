@@ -51,3 +51,9 @@ export const FormikWrapper = styled.div`
 export const InputWrapper = styled.label`
   position: relative;
 `;
+
+export const ButtonBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;

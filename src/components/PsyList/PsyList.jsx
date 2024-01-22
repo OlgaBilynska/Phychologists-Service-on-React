@@ -7,70 +7,62 @@ import { PsyListWrapper, LoadMoreWrapper } from './PsyList.styled.js';
 import { db } from '../../firebase.js';
 import { ref, onValue } from 'firebase/database';
 import Button from 'components/Button/index.js';
-// import {
-// collection,
-// query,
-// orderBy,
-//   startAfter,
-//   limit,
-//   getDocs,
-// } from 'firebase/firestore';
-// import { selectPsychologists } from '../../redux/selectors.js';
 
 const PsyList = () => {
   const [psychologists, setPsychologists] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const psyPerPage = 3;
 
-  //start the example
+  // const [clickedPsyId, setClickedPsyId] = useState(null);
+  const [favoritesPsy, setFavoritePsy] = useState([]);
 
-  // const [list, setList] = useState([]);
-  // const [page, setPage] = useState(1);
+  useEffect(() => {
+    const favoritesRef = ref(db, 'favorites');
+    const query = onValue(favoritesRef, snapshot => {
+      const data = snapshot.val();
+      if (data) {
+        const favoritesArray = Object.values(data);
+        setFavoritePsy(favoritesArray);
+      }
+    });
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     await fireBaseConfig
-  //       .firestore()
-  //       .collection('psycologists')
-  //       // .orderBy('created', 'desc')
-  //       // .limit(4)
-  //       .onSnapshot(function (querySnapshot) {
-  //         var items = [];
-  //         querySnapshot.forEach(function (doc) {
-  //           items.push({ key: nanoid(), ...doc.data() });
-  //         });
-  //         console.log('first item ', items[0]);
-  //         setPsychologists(items);
-  //       });
-  //   };
-  //   fetchData();
-  // }, []);
+    return () => {
+      query();
+    };
+  }, []);
 
-  const showNext = ({ item }) => {
-    // if (psychologists.length === 0) {
-    //   alert('Thats all we have for now !');
-    // } else {
-    //   const fetchNextData = async () => {
-    //     await fireBaseConfig
-    //       .firestore()
-    //       .collection('psycologists')
-    //       // .orderBy('created', 'desc')
-    //       .limit(5)
-    //       .startAfter(item.created)
-    //       .onSnapshot(function (querySnapshot) {
-    //         const items = [];
-    //         querySnapshot.forEach(function (doc) {
-    //           items.push({ key: nanoid(), ...doc.data() });
-    //         });
-    //         setPsychologists(items);
-    //         setCurrentPage(currentPage + 1);
-    //       });
-    //   };
-    //   fetchNextData();
-    // }
+  const isFavoritePsy = psyId => {
+    return favoritesPsy.find(psy => psy.id === psyId);
   };
 
-  //finish
+  const addToFavorites = psychologist => {
+    return [...favoritesPsy, psychologist];
+  };
+
+  const deleteFromFavorites = psyId => {
+    const index = favoritesPsy.findIndex(
+      favoritePsy => favoritePsy.id === favoritePsy.psyId
+    );
+    const updatedFavortes = favoritesPsy.splice(index, 1);
+    setFavoritePsy(updatedFavortes);
+  };
+
+  const toggleIcon = psyId => {
+    const foundFavPsy = psychologists.find(psy => psy.id === psyId);
+
+    if (foundFavPsy) {
+      deleteFromFavorites(foundFavPsy.id);
+    } else {
+      const chosenFavPsy = favoritesPsy.find(psy => psy.id === psyId);
+      addToFavorites(chosenFavPsy);
+    }
+  };
+
+  const onHeartClick = psyId => {
+    // setClickedPsyId(psyId);
+    toggleIcon(psyId);
+    isFavoritePsy(psyId);
+  };
 
   const onLoadMore = () => {
     setCurrentPage(currentPage + 1);
@@ -79,37 +71,18 @@ const PsyList = () => {
   useEffect(() => {
     const psychologistsRef = ref(db, 'psycologists');
 
-    // const queryRef = query(psychologistsRef);
-    // console.log('q', queryRef);
-
-    // const myQuery = psychologistsRef.limit(4);
-
-    // const first = query(collection(db, 'psycologists'), limit(25));
-    // const documentSnapshots = async () => {
-    //   await getDocs(first);
-    // };
-
-    // const lastVisible =
-    //   documentSnapshots.docs[documentSnapshots.docs.length - 1];
-    // console.log('last', lastVisible);
-
-    // const next = query(
-    //   collection(db, 'psycologists'),
-    //   startAfter(lastVisible),
-    //   limit(25)
-    // );
-
     const startAt = (currentPage - 1) * psyPerPage;
-    // const endAt = startAt + psyPerPage;
 
     const query = onValue(psychologistsRef, snapshot => {
       const data = snapshot.val();
 
       if (data) {
-        const psychologistsArray = Object.values(data).slice(
-          startAt,
-          startAt + psyPerPage
-        );
+        const psychologistsArray = Object.values(data)
+          .slice(startAt, startAt + psyPerPage)
+          .map(psychologist => ({
+            id: nanoid(),
+            ...psychologist,
+          }));
         setPsychologists(prevPsychologists => [
           ...prevPsychologists,
           ...psychologistsArray,
@@ -124,7 +97,12 @@ const PsyList = () => {
     <>
       <PsyListWrapper>
         {psychologists.map(psychologist => (
-          <PsyCard psychologist={psychologist} key={nanoid()} />
+          <PsyCard
+            psychologist={psychologist}
+            key={psychologist.id}
+            onHeartClick={onHeartClick}
+            isFavoritePsy={isFavoritePsy}
+          />
         ))}
 
         <LoadMoreWrapper>
@@ -132,22 +110,14 @@ const PsyList = () => {
             ''
           ) : (
             <Button
-              onClick={() =>
-                showNext({ item: psychologists[psychologists.length - 1] })
-              }
+              type="button"
+              fontSize={16}
+              padding="14px 48px"
+              onClick={onLoadMore}
             >
-              Next
+              Load more
             </Button>
           )}
-
-          <Button
-            type="button"
-            fontSize={16}
-            padding="14px 48px"
-            onClick={onLoadMore}
-          >
-            Load more
-          </Button>
         </LoadMoreWrapper>
       </PsyListWrapper>
     </>

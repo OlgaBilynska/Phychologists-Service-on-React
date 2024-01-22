@@ -65,6 +65,21 @@ export const HeartSvg = styled.svg`
   margin-left: 28px;
 `;
 
+export const HeartIconStyled = styled.svg`
+  width: 26px;
+  height: 26px;
+  stroke: var(--color-accent);
+  fill: var(--color-accent);
+  margin-left: 28px;
+`;
+
+export const HeartWrapper = styled.button`
+  width: 26px;
+  height: 26px;
+  background-color: transparent;
+  border: none;
+`;
+
 export const ContentWrapper = styled.div``;
 
 export const JobRatingBlock = styled.div`

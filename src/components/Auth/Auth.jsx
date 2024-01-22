@@ -5,14 +5,10 @@ import LogoutBtn from 'components/LogoutBtn';
 import { app, googleAuthProvider } from '../../firebase';
 import { AuthBlock, IconUser, AuthText, AuthLogoutBlock } from './Auth.styled';
 import sprite from '../../assets/sprite.svg';
-import { selectUserData } from '../../redux/selectors';
 
 const AuthProvider = ({ onAuthStateChanged }) => {
   const auth = getAuth(app);
   const [user, setUser] = useState(auth.currentUser);
-
-  const userInfo = useSelector(selectUserData);
-  console.log('userInfo', userInfo);
 
   console.log('email', auth?.currentUser?.email);
 
@@ -33,12 +29,6 @@ const AuthProvider = ({ onAuthStateChanged }) => {
             }
           })
           .catch(e => console.error(e));
-
-        // createUserWithEmailAndPassword(auth, values.email, values.password)
-        //   .then(credentials => {
-        //     console.log('cre', credentials);
-        //   })
-        //   .catch(e => console.error(e));
       }
     });
 

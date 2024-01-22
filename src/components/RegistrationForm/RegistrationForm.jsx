@@ -24,8 +24,6 @@ const RegistrationForm = () => {
   console.log('registration');
   const [values, setValues] = useState('');
 
-  console.log('v', values);
-
   const initialValues = {
     name: '',
     email: '',

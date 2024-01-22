@@ -20,12 +20,14 @@ import {
   RatingBlock,
   OnlineCircleBig,
   ReadMoreText,
+  HeartIconStyled,
+  HeartWrapper,
 } from './PsyCard.styled';
 import sprite from '../../assets/sprite.svg';
 import { useState } from 'react';
 import Reviews from 'components/Reviews/Reviews';
 
-const PsyCard = ({ psychologist }) => {
+const PsyCard = ({ psychologist, onHeartClick }) => {
   const {
     about,
     avatar_url,
@@ -36,6 +38,7 @@ const PsyCard = ({ psychologist }) => {
     price_per_hour,
     rating,
     specialization,
+    id,
   } = psychologist;
 
   const [fullInfo, setFullInfo] = useState(false);
@@ -65,7 +68,30 @@ const PsyCard = ({ psychologist }) => {
                 Price / 1 hour:{' '}
                 <PriceAccentText>{price_per_hour}$</PriceAccentText>
               </PriceText>
-              <HeartSvg>
+
+              {/* {isFavoritePsy ? (
+                <HeartWrapper
+                  onClick={() => {
+                    onHeartClick(id);
+                  }}
+                >
+                  <HeartIconStyled>
+                    <use href={`${sprite}#icon-active`} />
+                  </HeartIconStyled>
+                </HeartWrapper>
+              ) : (
+                <HeartWrapper
+                  onClick={() => {
+                    onHeartClick(id);
+                  }}
+                >
+                  <HeartSvg onClick={() => onHeartClick(id)}>
+                    <use href={`${sprite}#icon-heart`} />
+                  </HeartSvg>
+                </HeartWrapper>
+              )} */}
+
+              <HeartSvg onClick={() => onHeartClick(id)}>
                 <use href={`${sprite}#icon-heart`} />
               </HeartSvg>
             </RatingPriceBlock>
