@@ -1,31 +1,29 @@
 {
   "files": {
     "main.css": "/Phychologists-Service-on-React/static/css/main.71662282.css",
-    "main.js": "/Phychologists-Service-on-React/static/js/main.a8eaa030.js",
-    "static/js/392.894d7a78.chunk.js": "/Phychologists-Service-on-React/static/js/392.894d7a78.chunk.js",
-    "static/js/947.c4e55cc1.chunk.js": "/Phychologists-Service-on-React/static/js/947.c4e55cc1.chunk.js",
-    "static/js/777.1b1bfcaa.chunk.js": "/Phychologists-Service-on-React/static/js/777.1b1bfcaa.chunk.js",
-    "static/js/15.79a5468f.chunk.js": "/Phychologists-Service-on-React/static/js/15.79a5468f.chunk.js",
-    "static/js/70.c7db2a10.chunk.js": "/Phychologists-Service-on-React/static/js/70.c7db2a10.chunk.js",
-    "static/js/235.94bd2c2e.chunk.js": "/Phychologists-Service-on-React/static/js/235.94bd2c2e.chunk.js",
-    "static/js/790.c0787c9a.chunk.js": "/Phychologists-Service-on-React/static/js/790.c0787c9a.chunk.js",
-    "static/js/818.7ec515eb.chunk.js": "/Phychologists-Service-on-React/static/js/818.7ec515eb.chunk.js",
+    "main.js": "/Phychologists-Service-on-React/static/js/main.a55c8d68.js",
+    "static/js/392.641f68e7.chunk.js": "/Phychologists-Service-on-React/static/js/392.641f68e7.chunk.js",
+    "static/js/947.5e2e976b.chunk.js": "/Phychologists-Service-on-React/static/js/947.5e2e976b.chunk.js",
+    "static/js/777.06d150da.chunk.js": "/Phychologists-Service-on-React/static/js/777.06d150da.chunk.js",
+    "static/js/15.e039c357.chunk.js": "/Phychologists-Service-on-React/static/js/15.e039c357.chunk.js",
+    "static/js/70.bee36da9.chunk.js": "/Phychologists-Service-on-React/static/js/70.bee36da9.chunk.js",
+    "static/js/790.17468789.chunk.js": "/Phychologists-Service-on-React/static/js/790.17468789.chunk.js",
+    "static/js/482.7446c21e.chunk.js": "/Phychologists-Service-on-React/static/js/482.7446c21e.chunk.js",
     "static/media/psy-img.jpg": "/Phychologists-Service-on-React/static/media/psy-img.2c39942318e7bde1ac55.jpg",
     "static/media/sprite.svg": "/Phychologists-Service-on-React/static/media/sprite.a32665a117505c6302e94fb9026f8390.svg",
     "index.html": "/Phychologists-Service-on-React/index.html",
     "main.71662282.css.map": "/Phychologists-Service-on-React/static/css/main.71662282.css.map",
-    "main.a8eaa030.js.map": "/Phychologists-Service-on-React/static/js/main.a8eaa030.js.map",
-    "392.894d7a78.chunk.js.map": "/Phychologists-Service-on-React/static/js/392.894d7a78.chunk.js.map",
-    "947.c4e55cc1.chunk.js.map": "/Phychologists-Service-on-React/static/js/947.c4e55cc1.chunk.js.map",
-    "777.1b1bfcaa.chunk.js.map": "/Phychologists-Service-on-React/static/js/777.1b1bfcaa.chunk.js.map",
-    "15.79a5468f.chunk.js.map": "/Phychologists-Service-on-React/static/js/15.79a5468f.chunk.js.map",
-    "70.c7db2a10.chunk.js.map": "/Phychologists-Service-on-React/static/js/70.c7db2a10.chunk.js.map",
-    "235.94bd2c2e.chunk.js.map": "/Phychologists-Service-on-React/static/js/235.94bd2c2e.chunk.js.map",
-    "790.c0787c9a.chunk.js.map": "/Phychologists-Service-on-React/static/js/790.c0787c9a.chunk.js.map",
-    "818.7ec515eb.chunk.js.map": "/Phychologists-Service-on-React/static/js/818.7ec515eb.chunk.js.map"
+    "main.a55c8d68.js.map": "/Phychologists-Service-on-React/static/js/main.a55c8d68.js.map",
+    "392.641f68e7.chunk.js.map": "/Phychologists-Service-on-React/static/js/392.641f68e7.chunk.js.map",
+    "947.5e2e976b.chunk.js.map": "/Phychologists-Service-on-React/static/js/947.5e2e976b.chunk.js.map",
+    "777.06d150da.chunk.js.map": "/Phychologists-Service-on-React/static/js/777.06d150da.chunk.js.map",
+    "15.e039c357.chunk.js.map": "/Phychologists-Service-on-React/static/js/15.e039c357.chunk.js.map",
+    "70.bee36da9.chunk.js.map": "/Phychologists-Service-on-React/static/js/70.bee36da9.chunk.js.map",
+    "790.17468789.chunk.js.map": "/Phychologists-Service-on-React/static/js/790.17468789.chunk.js.map",
+    "482.7446c21e.chunk.js.map": "/Phychologists-Service-on-React/static/js/482.7446c21e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.71662282.css",
-    "static/js/main.a8eaa030.js"
+    "static/js/main.a55c8d68.js"
   ]
 }
