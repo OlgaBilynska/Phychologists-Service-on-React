@@ -1,29 +1,29 @@
 {
   "files": {
     "main.css": "/Phychologists-Service-on-React/static/css/main.71662282.css",
-    "main.js": "/Phychologists-Service-on-React/static/js/main.a55c8d68.js",
-    "static/js/392.641f68e7.chunk.js": "/Phychologists-Service-on-React/static/js/392.641f68e7.chunk.js",
+    "main.js": "/Phychologists-Service-on-React/static/js/main.d8d6cc00.js",
+    "static/js/392.46bee08e.chunk.js": "/Phychologists-Service-on-React/static/js/392.46bee08e.chunk.js",
     "static/js/947.5e2e976b.chunk.js": "/Phychologists-Service-on-React/static/js/947.5e2e976b.chunk.js",
     "static/js/777.06d150da.chunk.js": "/Phychologists-Service-on-React/static/js/777.06d150da.chunk.js",
     "static/js/15.e039c357.chunk.js": "/Phychologists-Service-on-React/static/js/15.e039c357.chunk.js",
     "static/js/70.bee36da9.chunk.js": "/Phychologists-Service-on-React/static/js/70.bee36da9.chunk.js",
     "static/js/790.17468789.chunk.js": "/Phychologists-Service-on-React/static/js/790.17468789.chunk.js",
-    "static/js/482.7446c21e.chunk.js": "/Phychologists-Service-on-React/static/js/482.7446c21e.chunk.js",
+    "static/js/482.1e4c00ac.chunk.js": "/Phychologists-Service-on-React/static/js/482.1e4c00ac.chunk.js",
     "static/media/psy-img.jpg": "/Phychologists-Service-on-React/static/media/psy-img.2c39942318e7bde1ac55.jpg",
     "static/media/sprite.svg": "/Phychologists-Service-on-React/static/media/sprite.a32665a117505c6302e94fb9026f8390.svg",
     "index.html": "/Phychologists-Service-on-React/index.html",
     "main.71662282.css.map": "/Phychologists-Service-on-React/static/css/main.71662282.css.map",
-    "main.a55c8d68.js.map": "/Phychologists-Service-on-React/static/js/main.a55c8d68.js.map",
-    "392.641f68e7.chunk.js.map": "/Phychologists-Service-on-React/static/js/392.641f68e7.chunk.js.map",
+    "main.d8d6cc00.js.map": "/Phychologists-Service-on-React/static/js/main.d8d6cc00.js.map",
+    "392.46bee08e.chunk.js.map": "/Phychologists-Service-on-React/static/js/392.46bee08e.chunk.js.map",
     "947.5e2e976b.chunk.js.map": "/Phychologists-Service-on-React/static/js/947.5e2e976b.chunk.js.map",
     "777.06d150da.chunk.js.map": "/Phychologists-Service-on-React/static/js/777.06d150da.chunk.js.map",
     "15.e039c357.chunk.js.map": "/Phychologists-Service-on-React/static/js/15.e039c357.chunk.js.map",
     "70.bee36da9.chunk.js.map": "/Phychologists-Service-on-React/static/js/70.bee36da9.chunk.js.map",
     "790.17468789.chunk.js.map": "/Phychologists-Service-on-React/static/js/790.17468789.chunk.js.map",
-    "482.7446c21e.chunk.js.map": "/Phychologists-Service-on-React/static/js/482.7446c21e.chunk.js.map"
+    "482.1e4c00ac.chunk.js.map": "/Phychologists-Service-on-React/static/js/482.1e4c00ac.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.71662282.css",
-    "static/js/main.a55c8d68.js"
+    "static/js/main.d8d6cc00.js"
   ]
 }
