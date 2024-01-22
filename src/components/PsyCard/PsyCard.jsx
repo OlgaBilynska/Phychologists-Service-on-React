@@ -20,8 +20,8 @@ import {
   RatingBlock,
   OnlineCircleBig,
   ReadMoreText,
-  HeartIconStyled,
-  HeartWrapper,
+  // HeartIconStyled,
+  // HeartWrapper,
 } from './PsyCard.styled';
 import sprite from '../../assets/sprite.svg';
 import { useState } from 'react';

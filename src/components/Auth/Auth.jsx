@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { getAuth, signInWithPopup } from 'firebase/auth';
 import LogoutBtn from 'components/LogoutBtn';
 import { app, googleAuthProvider } from '../../firebase';

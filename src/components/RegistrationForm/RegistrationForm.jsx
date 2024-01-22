@@ -21,8 +21,7 @@ import {
 } from 'components/LogInForm/LoginForm.styled';
 
 const RegistrationForm = () => {
-  console.log('registration');
-  const [values, setValues] = useState('');
+  // const [values, setValues] = useState('');
 
   const initialValues = {
     name: '',
@@ -58,7 +57,7 @@ const RegistrationForm = () => {
         values.email,
         values.password
       );
-      setValues(values);
+      // setValues(values);
       resetForm();
     } catch (e) {
       console.error(e);

@@ -81,7 +81,7 @@ const Header = () => {
           <AuthAndButtonBlock>
             <div>
               <AuthProvider />
-              {/* <AuthProvider onAuthStateChanged={handleAuthStateChanged} /> */}
+              <AuthProvider onAuthStateChanged={handleAuthStateChanged} />
             </div>
             <ButtonBlockStyled>
               <div onClick={() => toggleModal('login')}>
