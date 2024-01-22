@@ -3,7 +3,6 @@ import * as yup from 'yup';
 
 import { auth } from '../../firebase.js';
 import { createUserWithEmailAndPassword } from '@firebase/auth';
-import { useState } from 'react';
 
 import Button from 'components/Button';
 import sprite from '../../assets/sprite.svg';
