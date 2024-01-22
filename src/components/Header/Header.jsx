@@ -23,9 +23,7 @@ import { onAuthStateChanged } from '@firebase/auth';
 const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  console.log('auth', isAuthenticated);
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const location = useLocation();
 
@@ -36,7 +34,7 @@ const Header = () => {
 
   const handleAuthStateChanged = () => {
     if (onAuthStateChanged) {
-      setIsAuthenticated(prevState => !prevState);
+      // setIsAuthenticated(prevState => !prevState);
     } else return;
   };
 

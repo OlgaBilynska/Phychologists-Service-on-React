@@ -9,8 +9,6 @@ const AuthProvider = ({ onAuthStateChanged }) => {
   const auth = getAuth(app);
   const [user, setUser] = useState(auth.currentUser);
 
-  console.log('email', auth?.currentUser?.email);
-
   useEffect(() => {
     const unsub = auth.onAuthStateChanged(maybeUser => {
       if (maybeUser === null) {
