@@ -33,3 +33,8 @@ export const SelectPsyCategory = styled.select`
     border: transparent;
   }
 `;
+
+export const FilterOption = styled.option`
+  background-color: var(--color-white);
+  color: var(--color-text);
+`;

@@ -2,6 +2,7 @@ import {
   FilterText,
   FilterContainer,
   SelectPsyCategory,
+  FilterOption,
 } from './Filters.styled';
 
 const Filters = () => {
@@ -9,13 +10,13 @@ const Filters = () => {
     <FilterContainer>
       <FilterText>Filters</FilterText>
       <SelectPsyCategory>
-        <option>A to Z</option>
-        <option>Z to A</option>
-        <option>Less than 10$</option>
-        <option>Greater than 10$</option>
-        <option>Popular</option>
-        <option>Not popular</option>
-        <option>Show all</option>
+        <FilterOption>A to Z</FilterOption>
+        <FilterOption>Z to A</FilterOption>
+        <FilterOption>Less than 10$</FilterOption>
+        <FilterOption>Greater than 10$</FilterOption>
+        <FilterOption>Popular</FilterOption>
+        <FilterOption>Not popular</FilterOption>
+        <FilterOption>Show all</FilterOption>
       </SelectPsyCategory>
     </FilterContainer>
   );
