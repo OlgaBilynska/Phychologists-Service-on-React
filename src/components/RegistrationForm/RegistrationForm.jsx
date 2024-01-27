@@ -18,9 +18,12 @@ import {
   FormikWrapper,
   InputWrapper,
 } from 'components/LogInForm/LoginForm.styled';
+import { useState } from 'react';
 
 const RegistrationForm = () => {
   // const [values, setValues] = useState('');
+  const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye-off`);
+  const [type, setType] = useState('password');
 
   const initialValues = {
     name: '',
@@ -63,6 +66,16 @@ const RegistrationForm = () => {
     }
   };
 
+  const togglePassInput = () => {
+    if (type === 'password') {
+      setType('text');
+      setToggleIcon(`${sprite}#icon-eye`);
+    } else {
+      setType('password');
+      setToggleIcon(`${sprite}#icon-eye-off`);
+    }
+  };
+
   return (
     <FormWrapper>
       <RegTitle>Registration</RegTitle>
@@ -86,9 +99,9 @@ const RegistrationForm = () => {
               <FormError name="email" />
             </label>
             <InputWrapper>
-              <Input type="password" name="password" placeholder="Password" />
-              <EyeIcon>
-                <use href={`${sprite}#icon-eye-off`} />
+              <Input type={type} name="password" placeholder="Password" />
+              <EyeIcon onClick={togglePassInput}>
+                <use href={toggleIcon} />
               </EyeIcon>
             </InputWrapper>
             <FormError name="password" />

@@ -16,6 +16,7 @@ import {
 import { EyeIcon } from 'components/RegistrationForm/RegistrationForm.styled';
 import sprite from '../../assets/sprite.svg';
 import { ButtonStyled } from 'components/Button/Button.styled.js';
+import { useState } from 'react';
 
 export const FormError = ({ name }) => {
   return (
@@ -27,6 +28,9 @@ export const FormError = ({ name }) => {
 };
 
 const LoginForm = () => {
+  const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye-off`);
+  const [type, setType] = useState('password');
+
   const initialValues = {
     email: '',
     password: '',
@@ -59,6 +63,16 @@ const LoginForm = () => {
     }
   };
 
+  const togglePassInput = () => {
+    if (type === 'password') {
+      setType('text');
+      setToggleIcon(`${sprite}#icon-eye`);
+    } else {
+      setType('password');
+      setToggleIcon(`${sprite}#icon-eye-off`);
+    }
+  };
+
   return (
     <FormWrapper>
       <LogInTitle>Log In</LogInTitle>
@@ -79,9 +93,9 @@ const LoginForm = () => {
               <FormError name="email" />
             </label>
             <InputWrapper>
-              <Input type="password" name="password" placeholder="Password" />
-              <EyeIcon>
-                <use href={`${sprite}#icon-eye-off`} />
+              <Input type={type} name="password" placeholder="Password" />
+              <EyeIcon onClick={togglePassInput}>
+                <use href={toggleIcon} />
               </EyeIcon>
             </InputWrapper>
             <FormError name="password" />
