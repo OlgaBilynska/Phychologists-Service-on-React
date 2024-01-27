@@ -1,9 +1,7 @@
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-
-import { auth } from '../../firebase.js';
+import { auth, db } from '../../firebase.js'; // Import the 'db' module
 import { createUserWithEmailAndPassword } from '@firebase/auth';
-
 import Button from 'components/Button';
 import sprite from '../../assets/sprite.svg';
 import {
@@ -18,11 +16,12 @@ import {
   FormikWrapper,
   InputWrapper,
 } from 'components/LogInForm/LoginForm.styled';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { ref, onValue, set, child, push, update } from 'firebase/database';
+import { nanoid } from 'nanoid';
 
 const RegistrationForm = () => {
-  // const [values, setValues] = useState('');
-  const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye-off`);
+  const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye`);
   const [type, setType] = useState('password');
 
   const initialValues = {
@@ -34,11 +33,7 @@ const RegistrationForm = () => {
   const schema = yup.object().shape({
     name: yup.string().required('Name is a required field.'),
     email: yup.string().email().required('Email is a required field.'),
-    password: yup
-      .string()
-      .min(6)
-      .max(20)
-      .required('Password is a required field.'),
+    password: yup.string().min(6).max(20).required('Password is required.'),
   });
 
   const FormError = ({ name }) => {
@@ -50,30 +45,71 @@ const RegistrationForm = () => {
     );
   };
 
+  useEffect(() => {
+    const favoritesRef = ref(db, 'users');
+    console.log('users', favoritesRef);
+
+    const query = onValue(favoritesRef, snapshot => {
+      const data = snapshot.val();
+
+      console.log('data', data);
+
+      //  if (data) {
+      //    const psychologistsArray = Object.values(data);
+      //    setPsychologists(prevPsychologists => [
+      //      ...prevPsychologists,
+      //      ...psychologistsArray,
+      //    ]);
+      //  }
+    });
+    return () => query();
+  }, []);
+
   const handleSubmit = async (values, { resetForm }) => {
-    console.log('val', values);
     try {
-      await createUserWithEmailAndPassword(
-        auth,
-        values.name,
-        values.email,
-        values.password
-      );
-      // setValues(values);
+      await createUserWithEmailAndPassword(auth, values.email, values.password);
+
+      // const uid = nanoid();
+
+      const postData = {
+        name: values.name,
+        email: values.email,
+        // uid: uid,
+      };
+
+      const newPostKey = push(child(ref(db), 'users')).key;
+
+      const updates = {};
+      updates['/users/' + newPostKey] = postData;
+      // updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+      update(ref(db), updates);
+
+      // set(ref(db, 'users/'), {
+      //   username: values.name,
+      //   email: values.email,
+      // });
+      // Add data to Realtime Database
+      // const contactsRef = ref(db, 'users'); // Set reference to "Contacts" node
+      // contactsRef.push({
+      //   name: values.name,
+      //   email: values.email,
+      //   // You can add more fields as needed
+      // });
+
       resetForm();
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error('Error registering user:', error.message);
     }
   };
 
   const togglePassInput = () => {
-    if (type === 'password') {
-      setType('text');
-      setToggleIcon(`${sprite}#icon-eye`);
-    } else {
-      setType('password');
-      setToggleIcon(`${sprite}#icon-eye-off`);
-    }
+    setType(prevType => (prevType === 'password' ? 'text' : 'password'));
+    setToggleIcon(prevIcon =>
+      prevIcon === `${sprite}#icon-eye-off`
+        ? `${sprite}#icon-eye`
+        : `${sprite}#icon-eye-off`
+    );
   };
 
   return (

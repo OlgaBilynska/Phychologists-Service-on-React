@@ -78,7 +78,6 @@ const Header = () => {
 
           <AuthAndButtonBlock>
             <div>
-              <AuthProvider />
               <AuthProvider onAuthStateChanged={handleAuthStateChanged} />
             </div>
             <ButtonBlockStyled>

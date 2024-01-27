@@ -56,8 +56,19 @@ const LoginForm = () => {
   const handleSubmit = async (values, { resetForm }) => {
     console.log('values.email', values.email);
     try {
-      await signInWithEmailAndPassword(auth, values.email, values.password);
-      resetForm();
+      await signInWithEmailAndPassword(auth, values.email, values.password)
+        .then(userCredential => {
+          const user = userCredential.user;
+          console.log('User', user);
+          // setValues(values);
+          resetForm();
+        })
+        .catch(error => {
+          const errorCode = error.code;
+          console.log('error code', errorCode);
+          const errorMessage = error.message;
+          console.log('errorMessage :>> ', errorMessage);
+        });
     } catch (e) {
       console.error(e);
     }

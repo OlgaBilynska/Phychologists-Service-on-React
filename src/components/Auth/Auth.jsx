@@ -9,31 +9,48 @@ const AuthProvider = ({ onAuthStateChanged }) => {
   const auth = getAuth(app);
   const [user, setUser] = useState(auth.currentUser);
 
-  useEffect(() => {
-    const unsub = auth.onAuthStateChanged(maybeUser => {
-      if (maybeUser === null) {
-        setUser(maybeUser);
+  console.log('user', user);
 
-        if (onAuthStateChanged) {
-          onAuthStateChanged(false);
-        }
-      } else {
-        signInWithPopup(auth, googleAuthProvider)
-          .then(credentials => {
-            setUser(credentials.user);
-            if (onAuthStateChanged) {
-              onAuthStateChanged(true);
-            }
-          })
-          .catch(e => console.error(e));
-      }
-    });
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/auth.user
+      const uid = user.uid;
+      console.log('uid :>> ', uid);
+      // ...
+    } else {
+      // User is signed out
+      console.log('no user');
+      // ...
+    }
+  });
 
-    return unsub;
-  }, [auth, onAuthStateChanged]);
+  // useEffect(() => {
+  //   const unsub = auth.onAuthStateChanged(maybeUser => {
+  //     if (maybeUser === null) {
+  //       setUser(maybeUser);
+
+  //       if (onAuthStateChanged) {
+  //         onAuthStateChanged(false);
+  //       }
+  //     } else {
+  //       signInWithPopup(auth, googleAuthProvider)
+  //         .then(credentials => {
+  //           setUser(credentials.user);
+  //           console.log('uid', credentials.user.uid);
+  //           if (onAuthStateChanged) {
+  //             onAuthStateChanged(true);
+  //           }
+  //         })
+  //         .catch(e => console.error(e));
+  //     }
+  //   });
+
+  //   return unsub;
+  // }, [auth, onAuthStateChanged]);
 
   return user !== null ? (
-    <AuthLogoutBlock>
+    <AuthLogoutBlock user={user}>
       <AuthBlock>
         <IconUser>
           <use href={`${sprite}#icon-user`} />
